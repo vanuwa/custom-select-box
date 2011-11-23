@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Custom Select Box Example</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet", type="text/css", href="style.css">
+  <link rel="stylesheet", type="text/css", href="stylesheets/select_box.css">
+  <script type="text/javascript">
+    var sbox = null;
+    function start() {
+      sbox = new SelectBox();
+      var container = document.getElementById('select_box_container');
+      sbox.append_to(container);
+
+      var items = [
+          {id:'lviv', value: 'Lviv'},
+          {id:'dnipro', value: 'Dnipropetrovsk'},
+          {id: 'kyiv', value: 'Kyiv'},
+          {id: 'yalta', value: 'Yalta'},
+          {id: 'franyk', value: 'Ivano-Frankivsk'},
+          {id: 'rahiv', value: 'Rahiv'},
+          {id: 'yaremche', value: 'Yaremche'},
+          {id: 'yasynya', value: 'Yasynya'},
+          {id: 'simferopol', value: 'Simferopol'},
+          {id: 'sevastopol', value: 'Sevastopol'},
+          {id: 'foros', value: 'Foros'},
+          {id: 'alushta', value: 'Alushta'},
+          {id: 'laspi', value: 'Laspi'},
+          {id: 'odessa', value: 'Odessa'},
+          {id: 'nikopol', value: 'Nikopol'},
+          {id: 'nikolaev', value: 'Nikolaev'},
+          {id: 'zapor', value: 'Zaporozhye'},
+          {id: 'melitopol', value: 'Melitopol'},
+          {id: 'krivrog', value: 'Kryvyy Rig'},
+          {id: 'lugansk', value: 'Lugansk'},
+          {id: 'donetsk', value: 'Donetsk'},
+          {id: 'poltava', value: 'Poltava'}
+        ];
+
+      sbox.reset(items);
+
+      sbox.on_change_selection(function(e) {
+          if(typeof console !== 'undefined' && console !== null && console.log) {
+            console.log('selection changed');
+          }
+      });
+    }
+  </script>
+  <body onload="start();">
+    <script src="javascripts/select_box.js" type="text/javascript"></script>
+    <div id="select_box_container">
+    </div>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+/*
+ * Here should be nested reset css code
+ */
+
+#select_box {
+  position: relative;
+}
+
+  #select_box_header {
+    position: absolute;
+    width: 300px;
+    height: 20px;
+    border: 1px solid green;
+    top: 0;
+  }
+
+  #triangle {
+    top: 2px;
+    right: 1px;
+    position: absolute;
+    border-right: 9px solid transparent;
+    border-left: 9px solid transparent;
+    border-top: 18px solid #F5BF49;
+    height: 0;
+    width: 0;
+    display: -moz-inline-stack;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+  }
+
+  #select_box_list_wrapper {
+    position: absolute;
+    top: 20px;
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    border: 1px solid green;
+  }
+
+    #select_box_items {
+      position: absolute;
+      top: 0;
+      margin-top: 0;
+      padding-top: 0;
+      padding-left: 2px;
+      width: 100%;
+    }
+
+      .list_item {
+        display: block;
+      }
+
+      .list_item:hover {
+        background-color: #BBC1C9;
+      }
+
+    #select_box_slider_wrapper {
+      position: absolute;
+      top: 0;
+      margin-top: 0;
+      padding-top: 0;
+      border: 1px solid blue;
+      width: 18px;
+      height: 100%;
+      right: 0;
+    }
+
+      #select_box_slider {
+        position: absolute;
+        top: 0;
+        background-color: #F5BF49;
+        height: 40%;
+        width: 100%;
+      }
+
+
