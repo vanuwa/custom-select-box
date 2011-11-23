@@ -12,4 +12,8 @@ Then
 
 etc.
 
+## Support
+ Firefox, Google Chrome
+ Not tested IE, Opera, Safari
+
 P.S. to be continued :)
