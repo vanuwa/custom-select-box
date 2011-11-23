@@ -68,9 +68,9 @@ class SelectBox
   models: []
   selected_item_el: null
 
-  constructor: () ->
+  constructor: (models) ->
 
-    @models = []
+    @reset models
 
     @el.id = 'select_box'
 

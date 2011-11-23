@@ -88,9 +88,9 @@
 
     SelectBox.prototype.selected_item_el = null;
 
-    function SelectBox() {
+    function SelectBox(models) {
       var self;
-      this.models = [];
+      this.reset(models);
       this.el.id = 'select_box';
       this.header_el.id = 'select_box_header';
       this.el.appendChild(this.header_el);

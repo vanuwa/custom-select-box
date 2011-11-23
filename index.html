@@ -9,10 +9,6 @@
   <script type="text/javascript">
     var sbox = null;
     function start() {
-      sbox = new SelectBox();
-      var container = document.getElementById('select_box_container');
-      sbox.append_to(container);
-
       var items = [
           {id:'lviv', value: 'Lviv'},
           {id:'dnipro', value: 'Dnipropetrovsk'},
@@ -38,7 +34,12 @@
           {id: 'poltava', value: 'Poltava'}
         ];
 
-      sbox.reset(items);
+      sbox = new SelectBox(items);
+      var container = document.getElementById('select_box_container');
+      sbox.append_to(container);
+
+      //sbox.reset(items);
+      sbox.select_by_position(6);
 
       sbox.on_change_selection(function(e) {
           if(typeof console !== 'undefined' && console !== null && console.log) {
