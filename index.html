@@ -37,19 +37,21 @@
       sbox = new SelectBox(items);
       var container = document.getElementById('select_box_container');
       sbox.append_to(container);
-
+      
+      
       //sbox.reset(items);
       sbox.select_by_position(6);
-
+      
       sbox.on_change_selection(function(e) {
           if(typeof console !== 'undefined' && console !== null && console.log) {
-            console.log('selection changed');
+            console.log('selection changed: ' + sbox.get_selected_item().value);
           }
       });
+     
     }
   </script>
   <body onload="start();">
-    <script src="javascripts/select_box.js" type="text/javascript"></script>
+    <script src="javascripts/custom_select_box.js" type="text/javascript"></script>
     <div id="select_box_container">
     </div>
   </body>
