@@ -70,6 +70,7 @@
     };
 
     // select an element by id
+    /*
     SelectBox.prototype.select_by_id = function(id) {
       var li = document.getElementById(id);
       if(li !== null) {
@@ -80,6 +81,7 @@
       }
       return li;
     };
+    */
 
     // returns selected item model like {id: 'first', value: 'FIRST'}
     SelectBox.prototype.get_selected_item = function() {
@@ -305,12 +307,20 @@
 
     // trigger an event (cross-browser version)
     var trigger = function(element, event_name, event_type) {
-      var event = document.createEvent(event_type);
-      event.initEvent(event_name, true, true);
+      var event = null;
+
+      if (document.createEvent) {
+        event = document.createEvent(event_type);
+        event.initEvent(event_name, true, true);
+      } else if (document.createEventObject) {
+        event = document.createEventObject();
+      }
+
       if (element.dispatchEvent) {
         element.dispatchEvent(event);
       } else if (element.fireEvent) {
         element.fireEvent(event_name, event);
+        event.cancelBubble = true;
       }
     };
 
@@ -342,7 +352,18 @@
       li.setAttribute('class', li_css_class_name);
       li.setAttribute('value', item.value);
       li.innerHTML = item.value;
-      bind(li, 'click', function(e) {self.select_by_id(this.id)}, false);
+      bind(li, 'click', function(e) {
+        e || (e = window.event);
+        puts( 'this : ' + this + ", srcElement : " + e.srcElement + ", target : " + e.target);
+        var element = null;
+        if (typeof e.target !== 'undefined') {
+          element = e.target;
+        } else if (typeof e.srcElement !== 'undefined'){
+          element = e.srcElement;
+        }
+        select_element(element);
+        //self.select_by_id(this.id)
+      }, false);
       if (!selected_item) self.select_by_id(item.id);
       return li;
     };
@@ -377,7 +398,7 @@
       var scroll_bar_height = self.scroll_bar.offsetHeight;
       var slider_height = Math.round((visible_list_height * scroll_bar_height) / list_height);
       slider_height = slider_height > scroll_bar_height ? scroll_bar_height : slider_height;
-      self.slider.style.height = slider_height + 'px';
+      self.slider.style.height = isNaN(slider_height) ? '' : slider_height + 'px';
       dx = list_height / scroll_bar_height;
       return slider_height;
     };
@@ -386,8 +407,8 @@
       mouse_down = false;
 
       bind(self.slider, 'mousedown', slider_on_mousedown, false);
-      bind(window, 'mousemove', slider_on_mousemove, false);
-      bind(window, 'mouseup', slider_on_mouseup, false);
+      bind(document, 'mousemove', slider_on_mousemove, false);        // document instead of window because of ie8
+      bind(document, 'mouseup', slider_on_mouseup, false);            // document instead of window because of ie8
     };
 
     return SelectBox;
