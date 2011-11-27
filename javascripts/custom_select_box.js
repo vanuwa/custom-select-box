@@ -201,6 +201,7 @@
     };
 
     SelectBox.prototype.disable = function() {
+      hide_list();
       unbind(self.header, 'click', header_on_click, false);
       unbind(self.triangle, 'click', header_on_click, false);
       header_background = self.header.style.background;
