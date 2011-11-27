@@ -321,7 +321,7 @@
       if (element.dispatchEvent) {
         element.dispatchEvent(event);
       } else if (element.fireEvent) {
-        element.fireEvent(event_name);
+        element.fireEvent('on' + event_name);
       }
     };
 
