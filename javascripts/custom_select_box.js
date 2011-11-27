@@ -16,6 +16,7 @@
     var li_css_class_name = 'list_item';
     var selected_item = null;
     var header_background = null;
+    var change_selection_event_name = 'scroll';       // IE supported naming
 
     function SelectBox(models) {
       
@@ -196,7 +197,7 @@
     };
 
     SelectBox.prototype.on_change_selection = function(callback) {
-      bind(self.el, 'change_selection', callback, false);
+      bind(self.el, change_selection_event_name, callback, false);
       return self;
     };
 
@@ -320,10 +321,7 @@
       if (element.dispatchEvent) {
         element.dispatchEvent(event);
       } else if (element.fireEvent) {
-        /*
-        element.fireEvent(event_name, event);
-        event.cancelBubble = true;
-        */ // commented until not fixed
+        element.fireEvent(event_name);
       }
     };
 
@@ -389,7 +387,7 @@
         self.header.innerHTML = element.innerHTML;
         selected_item = element;
         hide_list();
-        trigger(self.el, 'change_selection', 'HTMLEvents');
+        trigger(self.el, change_selection_event_name, 'HTMLEvents');
       }
       return self;
     };
