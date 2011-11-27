@@ -319,8 +319,10 @@
       if (element.dispatchEvent) {
         element.dispatchEvent(event);
       } else if (element.fireEvent) {
+        /*
         element.fireEvent(event_name, event);
         event.cancelBubble = true;
+        */ // commented until not fixed
       }
     };
 
