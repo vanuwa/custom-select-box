@@ -28,9 +28,9 @@ sbox.disable();                                       // disable element
 etc.
 
 ## Support
-_Firefox_, _Google Chrome_, _IE8_
+Firefox, Google Chrome, IE8
 
-Not tested: _IE6_, _IE7_, _IE9_, _Opera_, _Safari_
+_Not tested_: IE6, IE7, IE9, Opera, Safari
 
 
 P.S. to be continued :)
