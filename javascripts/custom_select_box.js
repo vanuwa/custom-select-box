@@ -351,7 +351,7 @@
       var li = document.createElement('li');
       li.id = item.id;
       li.setAttribute('class', li_css_class_name);
-      li.setAttribute('value', item.value);
+      //li.setAttribute('value', item.value);             // ie7 does't understand
       li.innerHTML = item.value;
       bind(li, 'click', function(e) {
         e || (e = window.event);
