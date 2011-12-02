@@ -12,9 +12,11 @@
     height: 20px;
     border: 1px solid green;
     top: 0;
+    cursor: pointer;
   }
 
   #triangle {
+    cursor: pointer;
     top: 2px;
     right: 1px;
     position: absolute;
@@ -49,6 +51,7 @@
 
       .list_item {
         display: block;
+        cursor: pointer;
       }
 
       .list_item:hover {
